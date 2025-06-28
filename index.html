@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einzelfahrten - Jede Fahrt zählt. Für mehr Netto vom Brutto.</title>
+    <meta name="description" content="Einfache Erfassung von Einzelfahrten zum Büro bei Firmenwagen für die steuerlich vorteilhafte 0,002%-Regel. Kein Fahrtenbuch nötig.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🚗</span>
+                <span class="logo-text">Einzelfahrten</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#steuer" class="nav-link">Steuerliche Vorteile</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#kontakt" class="nav-link">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Einzelfahrten</h1>
+                <p class="hero-subtitle">Jede Fahrt zählt. Für mehr Netto vom Brutto.</p>
+                <p class="hero-description">
+                    Erfassen Sie Ihre Fahrten zum Büro mit dem Firmenwagen einfach und schnell. 
+                    Nutzen Sie die steuerlich vorteilhafte 0,002%-Regel ohne lästiges Fahrtenbuch.
+                </p>
+                <div class="hero-app-icon">
+                    <div class="app-icon">🚗</div>
+                </div>
+                <button class="cta-button" onclick="scrollToContact()">
+                    <span class="button-text">App bald verfügbar</span>
+                    <span class="button-icon">→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vorteile Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Warum Einzelfahrten?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧾</div>
+                    <h3>Kein Fahrtenbuch nötig</h3>
+                    <p>Erfassen Sie Ihre Fahrten mit einem Fingertipp. Keine lästige Dokumentation mehr.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📅</div>
+                    <h3>Kalenderbasierte Erfassung</h3>
+                    <p>Wählen Sie einfach die Tage aus, an denen Sie mit dem Firmenwagen ins Büro gefahren sind.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📄</div>
+                    <h3>Finanzamtskonformer PDF-Nachweis</h3>
+                    <p>Erstellen Sie steuerlich relevante PDF-Nachweise für Ihr Finanzamt oder Steuerberater.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">App-Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-image">
+                        <div class="placeholder-image">📱</div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Fahrtenübersicht</h3>
+                        <p>Übersichtliche Kalenderansicht mit allen erfassten Fahrten. Markieren Sie Tage mit einem Klick.</p>
+                    </div>
+                </div>
+                <div class="feature-item reverse">
+                    <div class="feature-image">
+                        <div class="placeholder-image">📊</div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Steuerrechner</h3>
+                        <p>Berechnen Sie Ihre steuerlichen Vorteile mit dem integrierten Rechner für 0,002% und 0,03% Regel.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-image">
+                        <div class="placeholder-image">⚙️</div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Einstellungen</h3>
+                        <p>Speichern Sie Ihre persönlichen Daten für automatische Integration in PDF-Exporte.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steuerlicher Hintergrund -->
+    <section id="steuer" class="tax-info">
+        <div class="container">
+            <h2 class="section-title">Steuerliche Vorteile</h2>
+            <div class="tax-content">
+                <div class="tax-explanation">
+                    <h3>Die 0,002%-Regel</h3>
+                    <p>
+                        Bei der 0,002%-Regel wird für jeden Tag, an dem Sie mit dem Firmenwagen zur Arbeitsstätte fahren, 
+                        ein pauschaler Betrag von 0,002% des Bruttolistenpreises als geldwerter Vorteil angesetzt.
+                    </p>
+                    <p>
+                        <strong>Vorteil:</strong> Deutlich günstiger als die 0,03%-Regel, die für die gesamte Nutzungsdauer gilt.
+                    </p>
+                </div>
+                <div class="tax-example">
+                    <h4>Beispielrechnung</h4>
+                    <div class="example-box">
+                        <p><strong>Fahrzeug:</strong> 50.000€ Bruttolistenpreis</p>
+                        <p><strong>Arbeitstage pro Monat:</strong> 22 Tage</p>
+                        <p><strong>0,002%-Regel:</strong> 50.000€ × 0,002% × 22 = 22€ pro Monat</p>
+                        <p><strong>0,03%-Regel:</strong> 50.000€ × 0,03% = 1.500€ pro Monat</p>
+                        <p class="highlight">Ersparnis: 1.478€ pro Monat!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Häufige Fragen</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Was ist die 0,002%-Regel?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Die 0,002%-Regel ist eine steuerliche Regelung für Firmenwagen. Für jeden Tag, an dem Sie mit dem Firmenwagen zur Arbeitsstätte fahren, wird 0,002% des Bruttolistenpreises als geldwerter Vorteil angesetzt. Dies ist deutlich günstiger als die 0,03%-Regel.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Muss ich ein Fahrtenbuch führen?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nein! Mit der Einzelfahrten-App erfassen Sie nur die Tage, an denen Sie mit dem Firmenwagen ins Büro gefahren sind. Ein detailliertes Fahrtenbuch ist nicht erforderlich.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Was ist, wenn ich mal vergesse zu erfassen?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Kein Problem! Sie können jederzeit nachträglich Tage hinzufügen oder entfernen. Die App speichert alle Daten lokal auf Ihrem Gerät.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Wie sicher sind meine Daten?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Alle Daten werden ausschließlich lokal auf Ihrem Gerät gespeichert. Es erfolgt keine Übertragung an externe Server. Ihre Daten bleiben bei Ihnen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" class="contact">
+        <div class="container">
+            <h2 class="section-title">Interesse geweckt?</h2>
+            <p class="contact-subtitle">Lassen Sie sich benachrichtigen, wenn die App verfügbar ist.</p>
+            <form class="contact-form" action="mailto:info@einzelfahrten.app" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Ihre Nachricht (optional)" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-button">
+                    <span>Benachrichtigung anfordern</span>
+                </button>
+            </form>
+            <p class="contact-note">Kein Spam, kein Newsletter. Wir kontaktieren Sie nur bei App-Verfügbarkeit.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Einzelfahrten</h4>
+                    <p>Die App für steuerlich vorteilhafte Firmenwagen-Nutzung.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="impressum.html" class="footer-link">Impressum</a></li>
+                        <li><a href="datenschutz.html" class="footer-link">Datenschutz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Entwicklung</h4>
+                    <p>Entwickelt mit ❤️ für mehr Netto vom Brutto.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Einzelfahrten. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
