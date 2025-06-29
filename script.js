@@ -1,40 +1,148 @@
 // Smooth scrolling for navigation links
 function scrollToContact() {
-    document.getElementById('kontakt').scrollIntoView({
-        behavior: 'smooth'
-    });
+    const contactSection = document.getElementById('kontakt');
+    if (contactSection) {
+        contactSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
 }
 
 // FAQ Accordion functionality
 function toggleFAQ(button) {
     const faqItem = button.parentElement;
-    const isActive = faqItem.classList.contains('active');
+    const answer = faqItem.querySelector('.faq-answer');
+    const icon = button.querySelector('.faq-icon');
     
-    // Close all FAQ items
+    // Close all other FAQ items
     document.querySelectorAll('.faq-item').forEach(item => {
-        item.classList.remove('active');
+        if (item !== faqItem) {
+            item.classList.remove('active');
+            const otherIcon = item.querySelector('.faq-icon');
+            otherIcon.textContent = '+';
+        }
     });
     
-    // Open clicked item if it wasn't active
-    if (!isActive) {
-        faqItem.classList.add('active');
+    // Toggle current FAQ item
+    faqItem.classList.toggle('active');
+    
+    if (faqItem.classList.contains('active')) {
+        icon.textContent = '−';
+    } else {
+        icon.textContent = '+';
     }
 }
 
-// Add smooth scrolling to all navigation links
-document.addEventListener('DOMContentLoaded', function() {
+// Dynamic navigation handling
+function setupNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // If it's an anchor link (starts with #)
+            if (href.startsWith('#')) {
+                // If we're on a sub-page, navigate to index.html first
+                if (currentPage !== 'index.html') {
+                    e.preventDefault();
+                    window.location.href = 'index.html' + href;
+                }
+                // If we're on index.html, just scroll to the section
+                else {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            }
+        });
+    });
+}
+
+// Load navigation component
+async function loadNavigation() {
+    try {
+        const response = await fetch('navigation.html');
+        const navigationHtml = await response.text();
+        
+        // Check for placeholder first
+        const placeholder = document.getElementById('navigation-placeholder');
+        if (placeholder) {
+            placeholder.outerHTML = navigationHtml;
+        } else {
+            // Find the navigation placeholder or replace existing nav
+            const existingNav = document.querySelector('.navbar');
+            if (existingNav) {
+                existingNav.outerHTML = navigationHtml;
+            } else {
+                // Insert at the beginning of body if no nav exists
+                document.body.insertAdjacentHTML('afterbegin', navigationHtml);
+            }
+        }
+        
+        // Setup navigation after loading with a small delay to ensure DOM is ready
+        setTimeout(() => {
+            setupNavigation();
+        }, 10);
+    } catch (error) {
+        console.log('Navigation already exists or could not be loaded');
+    }
+}
+
+// Load footer component
+async function loadFooter() {
+    try {
+        const response = await fetch('footer.html');
+        const footerHtml = await response.text();
+        
+        // Check for placeholder first
+        const placeholder = document.getElementById('footer-placeholder');
+        if (placeholder) {
+            placeholder.outerHTML = footerHtml;
+        } else {
+            // Find the footer placeholder or replace existing footer
+            const existingFooter = document.querySelector('.footer');
+            if (existingFooter) {
+                existingFooter.outerHTML = footerHtml;
+            } else {
+                // Insert at the end of body if no footer exists
+                document.body.insertAdjacentHTML('beforeend', footerHtml);
+            }
+        }
+    } catch (error) {
+        console.log('Footer already exists or could not be loaded');
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Load components if they don't exist
+    if (!document.querySelector('.navbar')) {
+        loadNavigation();
+    } else {
+        setupNavigation();
+    }
+    
+    if (!document.querySelector('.footer')) {
+        loadFooter();
+    }
+    
+    // Smooth scroll for anchor links on the same page
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
@@ -148,4 +256,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         });
     }
-}); 
+});
+
+// Mobile menu toggle (if needed in the future)
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    navMenu.classList.toggle('active');
+} 
